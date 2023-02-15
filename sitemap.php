@@ -5,31 +5,8 @@
     define("NOT_CHECK_PERMISSIONS", true);
     set_time_limit(0);
     $cities = array();
-//$cities_kz = array();
 
     require($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/prolog_before.php");
-
-////запускаем встроенную в битрикс генерацию sitemap.xml
-//echo "START bitrix sitemap generator " . date("d.m.Y H:i:s") . "\n";
-////параметры для запуска генерации карты битрикс
-//$_REQUEST['lang'] = 'ru';
-//$_REQUEST['action'] = 'sitemap_run';
-//$_REQUEST['ID'] = 1; //ID настроек карты в админке
-//$_REQUEST['value'] = 0;
-//$_REQUEST['sessid'] = bitrix_sessid();
-//
-//do {
-//    $result = include "sitemap_bitrix_run.php";
-//    if ($result === false) {
-//        echo "ERROR: bitrix sitemap.xml generation";
-//        break;
-//    }
-//
-//    $_REQUEST['value'] = $v; //пошаговая генерация карты требует передачи
-//    $_REQUEST['NS'] = $NS;   //этих параметра на следующую итерацию
-//} while ($v != 100);
-//echo "END bitrix sitemap generator " . date("d.m.Y H:i:s") . "\n";
-
 
 //получение списка городов
     if (CModule::IncludeModule("iblock")) {
@@ -66,7 +43,6 @@
 
         $json2 = json_encode($xml2);
         $array2 = json_decode($json2,TRUE);
-
 
 
         if ($array2['url'][0]['loc'] != ''){
@@ -109,3 +85,4 @@
     echo "Create dirs and sitemap for ru\n";
 
     require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");
+?>

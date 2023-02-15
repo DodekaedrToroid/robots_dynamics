@@ -78,8 +78,9 @@ Allow: /bitrix/upload/
 Allow: *.js
 Allow: *.css
 
-<?$arr = explode(':',$_SERVER['HTTP_HOST']);?>
+<?$arr = explode(':',$_SERVER['HTTP_HOST']);//?>
 Sitemap: https://<?=$arr[0]?>/sitemap.xml
+
 
 
 
